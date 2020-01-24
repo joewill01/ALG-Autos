@@ -3,6 +3,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    background-color: black;
 }
 
 html { font-family: 'Roboto', sans-serif; }
@@ -15,8 +16,8 @@ html { font-family: 'Roboto', sans-serif; }
 
     background-color: #e7dba9;
     height: 70px;
+    z-index: 999;
 }
-
 
 .navbar {
     background-image: url('../img/header.svg');
@@ -31,11 +32,10 @@ html { font-family: 'Roboto', sans-serif; }
     height: 70px;
 }
 
-
 .brand {
     display: inline;
 
-    background-image: url("../img/logo.png");
+    background-image: url("../img/circle.png");
     background-size: cover;
 
     margin: 10px;
@@ -47,7 +47,6 @@ html { font-family: 'Roboto', sans-serif; }
 
     transition: ease height 0.4s, ease width 0.4s, ease left 0.4s;
 }
-
 
 .brand-scroll {
     height: 50px;
@@ -80,5 +79,48 @@ html { font-family: 'Roboto', sans-serif; }
 .nav-link-active {
     font-weight: 700;
     text-decoration: underline;
+}
+
+.content {
+    padding-top: 70px;
+}
+
+#slideshow {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 70px);
+}
+
+#slideshow div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    -webkit-box-shadow: inset 0px 0px 104px 43px rgba(0,0,0,0.75);
+-moz-box-shadow: inset 0px 0px 104px 43px rgba(0,0,0,0.75);
+box-shadow: inset 0px 0px 104px 43px rgba(0,0,0,0.75);
+    z-index: 2;
+}
+
+#slideshow div img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    z-index: 1;
+}
+
+#sildeshow div h1 {
+    position: absolute;
+
+    top: 30px;
+    left: 10px;
+
+
+    color: white;
+    font-family: Helvetica, sans-serif;
+    font-size: 72px;
 }
 
