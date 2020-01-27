@@ -17,6 +17,8 @@ html { font-family: 'Roboto', sans-serif; }
     background-color: #e7dba9;
     height: 70px;
     z-index: 999;
+
+    box-shadow: 0 0 30px 1px rgba(0,0,0,0.4)
 }
 
 .navbar {
@@ -25,7 +27,6 @@ html { font-family: 'Roboto', sans-serif; }
     height: 150px;
     width: 100%;
     transition: ease height 0.5s;
-
 }
 
 .navbar-scroll {
@@ -35,10 +36,10 @@ html { font-family: 'Roboto', sans-serif; }
 .brand {
     display: inline;
 
-    background-image: url("../img/circle.png");
+    background-image: url("../img/starbucks.png");
     background-size: cover;
 
-    margin: 10px;
+    margin-top: 10px;
     height: 90px;
     width: 90px;
 
@@ -51,14 +52,22 @@ html { font-family: 'Roboto', sans-serif; }
 .brand-scroll {
     height: 50px;
     width: 50px;
-    left: 5px;
+    left: 13px;
 }
 
 .nav {
+    margin-right: 20px;
+    height: 85px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     float: right;
+    transition: ease height 0.4s
+}
+
+.nav-scroll {
+    height: 70px;
 }
 
 .nav-link {
@@ -81,46 +90,94 @@ html { font-family: 'Roboto', sans-serif; }
     text-decoration: underline;
 }
 
+.section-top {
+    position: relative;
+    top: -61px;
+}
+
+
 .content {
     padding-top: 70px;
+    height: auto;
 }
 
 #slideshow {
     position: relative;
+
     width: 100%;
     height: calc(100vh - 70px);
 }
 
-#slideshow div {
+.slide {
     position: absolute;
     top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
 
-    -webkit-box-shadow: inset 0px 0px 104px 43px rgba(0,0,0,0.75);
--moz-box-shadow: inset 0px 0px 104px 43px rgba(0,0,0,0.75);
-box-shadow: inset 0px 0px 104px 43px rgba(0,0,0,0.75);
-    z-index: 2;
-}
-
-#slideshow div img {
     width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    z-index: 1;
+    height: calc(100vh - 70px);
 }
 
-#sildeshow div h1 {
+.slide-content {
     position: absolute;
+    top: 0;
 
-    top: 30px;
-    left: 10px;
-
-
-    color: white;
-    font-family: Helvetica, sans-serif;
-    font-size: 72px;
+    width: 100%;
+    height: calc(100vh - 70px);
 }
 
+.slide-content img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    object-fit: cover;
+}
+
+.slide-content .text {
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    height: calc(100vh - 70px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    background-color: rgba(0,0,0,0.2);
+
+    box-shadow: inset 0 0 50px 25px rgba(0,0,0,0.75);
+}
+
+.header1 {
+    font-family: "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 12vw;
+    color: white;
+    margin: 0;
+}
+
+.header2 {
+    font-family: "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 5vw;
+    color: white;
+    opacity: 0.5;
+    margin: 0;
+}
+
+@media screen and (min-width: 450px) {
+    .header1 {
+        font-size: 54px;
+    }
+
+    .header2 {
+        font-size: 22.5px;
+    }
+}
+
+.flex-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
