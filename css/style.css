@@ -24,7 +24,7 @@ html { font-family: 'Roboto', sans-serif; }
 .navbar {
     background-image: url('../img/header.svg');
     background-size: cover;
-    height: 150px;
+    height: 110px;
     width: 100%;
     transition: ease height 0.5s;
 }
@@ -36,7 +36,7 @@ html { font-family: 'Roboto', sans-serif; }
 .brand {
     display: inline;
 
-    background-image: url("../img/starbucks.png");
+    background-image: url("../img/circle.png");
     background-size: cover;
 
     margin-top: 10px;

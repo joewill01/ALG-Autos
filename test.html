@@ -5,31 +5,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
+        .header {
+            d: path("m0 0v70q250 80 500 0v-70z");
+            transition: ease d 0.25s;
         }
 
-        .slide-content {
-            position: absolute;
-        }
-
-        .slide-content img {
-            position: absolute;
-            top: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-        }
-
-        .slide-content h1 {
-            position: absolute;
-            top: 60px;
-        }
-
-        .slide-content p {
-            position: absolute;
-            top: 90px;
+        .header:hover {
+            d: path("m0 0v70q250 0 500 0v-70z");
         }
 
     </style>
@@ -37,11 +19,10 @@
 
 <body>
 
-    <div class="slide-content">
-        <img src="https://static.turbosquid.com/Preview/2019/04/12__06_29_25/7.jpg163776B8-0B46-4EB4-B2F4-CDE0585EA01BZoom.jpg">
-        <h1>First Slide</h1>
-        <p>Lorem Ipsum Dolor Sit Amet</p>
-    </div>
+<svg height="110" preserveAspectRatio="none" viewBox="0 0 500 110" xmlns="http://www.w3.org/2000/svg">
+    <path class="header" fill="#e7dba9"/>
+</svg>
+
 
 </body>
 
