@@ -5,24 +5,52 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .header {
-            d: path("m0 0v70q250 80 500 0v-70z");
-            transition: ease d 0.25s;
+        .header rect {
+            ry: 55
+            transition: ease ry 0.25s;
         }
 
-        .header:hover {
-            d: path("m0 0v70q250 0 500 0v-70z");
+        .header rect:hover {
+            ry: 0
         }
 
     </style>
+
+    <script>
+        let x = 1;
+
+        function animate_header() {
+            if (x == 1) {
+                document.getElementById('header-scroll-animate').beginElement();
+                x = 0;
+            } else {
+                document.getElementById('header-animate').beginElement();
+                x = 1;
+            }
+        }
+
+    </script>
 </head>
 
 <body>
 
-<svg height="110" preserveAspectRatio="none" viewBox="0 0 500 110" xmlns="http://www.w3.org/2000/svg">
-    <path class="header" fill="#e7dba9"/>
+<svg class="header" height="110" preserveAspectRatio="none" viewBox="0 0 500 110" xmlns="http://www.w3.org/2000/svg">
+
+    <rect width="500" height="55" fill="#e7dba9"></rect>
+    <ellipse cx="250" cy="25" rx="300" ry="55" fill="#000">
+        <animate attributeName="ry" repeatCount="1" from="55" to="0" fill="freeze"/>
+        <animate attributeName="cy" repeatCount="1" from="25" to="55" fill="freeze"/>
+    </ellipse>
 </svg>
 
+<svg class="header-image" preserveAspectRatio="none" viewBox="0 0 500 110" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#e7dba9" d="m0 0v70q250 80 500 0v-70z">
+        <animate id="header-animate" begin="indefinite" dur="0.25s" attributeName="d" repeatCount="1" from="m0 0v70q250 0 500 0v-70z" to="m0 0v70q250 80 500 0v-70z" fill="freeze"></animate>
+        <animate id="header-scroll-animate" begin="indefinite" dur="0.25s" attributeName="d" repeatCount="1" from="m0 0v70q250 80 500 0v-70z" to="m0 0v70q250 0 500 0v-70z" fill="freeze"></animate>
+    </path>
+</svg>
+
+<button onclick="animate_header()">Animate</button>
 
 </body>
 

@@ -14,24 +14,20 @@ html { font-family: 'Roboto', sans-serif; }
     left: 0;
     right: 0;
 
-    background-color: #e7dba9;
     height: 70px;
     z-index: 999;
 
     box-shadow: 0 0 30px 1px rgba(0,0,0,0.4)
 }
 
-.navbar {
-    background-image: url('../img/header.svg');
-    background-size: cover;
-    height: 110px;
+.header-image {
+    position: absolute;
+    top: 0;
     width: 100%;
-    transition: ease height 0.5s;
+    height: 110px;
+    z-index: -1;
 }
 
-.navbar-scroll {
-    height: 70px;
-}
 
 .brand {
     display: inline;
