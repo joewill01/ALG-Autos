@@ -5,41 +5,24 @@
     <meta charset="UTF-8">
     <title>ALG Autos</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/jquery-3.4.1.min.js"></script>
-    <script src="./js/jquery.svg.es5.min.js"></script>
-    <script src="./js/script.js"></script>
-    <script src="./js/zenscroll-min.js"></script>
+
 
     <meta name=viewport content="width=device-width, initial-scale=1">
 </head>
 
 <body>
     <div class="header">
-        <svg class="header-image" preserveAspectRatio="none" viewBox="0 0 500 110" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#e7dba9" d="m0 0v70q250 80 500 0v-70z">
-                <animate id="header-animate"
-                         begin="indefinite"
-                         dur=".25s"
-                         attributeName="d"
-                         repeatCount="1"
-                         to="m0 0v70q250 80 500 0v-70z"
-                         fill="freeze"
-                         keySplines=".17,.67,.83,.67">
-                </animate>
+        <svg id="header-svg"
+             preserveAspectRatio="none"
+             viewBox="0 0 500 110"
+             xmlns="http://www.w3.org/2000/svg">
 
-                <animate id="header-scroll-animate"
-                         begin="indefinite"
-                         dur=".25s"
-                         attributeName="d"
-                         repeatCount="1"
-                         to="m0 0v70q250 0 500 0v-70z"
-                         fill="freeze"
-                         keySplines=".17,.67,.83,.67">
-                </animate>
+            <path fill="#e7dba9"
+                  d="m0 0v70q250 80 500 0v-70z">
             </path>
         </svg>
 
-        <a href="#top"><span class="brand"></span></a>
+        <a href="#top"><span id="brand" class="brand"></span></a>
 
         <div class="nav">
             <a class="nav-link" href="#about-us">About Us</a>
@@ -101,6 +84,17 @@
         </div>
 
     </div>
+
+<script src="./js/anime.min.js"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/zenscroll-min.js"></script>
+
+
+
 </body>
+
+
+
 
 </html>

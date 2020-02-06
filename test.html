@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
     <style>
         .header rect {
             ry: 55
@@ -14,25 +15,19 @@
             ry: 0
         }
 
-    </style>
-
-    <script>
-        let x = 1;
-
-        function animate_header() {
-            if (x == 1) {
-                document.getElementById('header-scroll-animate').beginElement();
-                x = 0;
-            } else {
-                document.getElementById('header-animate').beginElement();
-                x = 1;
-            }
+        #header-image-2 {
+            margin: 50px;
         }
 
-    </script>
+    </style>
+
 </head>
 
 <body>
+
+<div class="test" style="background-color: red; width: 100px; height: 100px;"></div>
+
+
 
 <svg class="header" height="110" preserveAspectRatio="none" viewBox="0 0 500 110" xmlns="http://www.w3.org/2000/svg">
 
@@ -50,8 +45,39 @@
     </path>
 </svg>
 
+<svg id="header-image-2" preserveAspectRatio="none" viewBox="0 0 500 110" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#e7dba9" d="m0 0v70q250 80 500 0v-70z"></path>
+</svg>
+
 <button onclick="animate_header()">Animate</button>
 
 </body>
+
+
+
+
+<script src="./js/anime.min.js"></script>
+    <script>
+        let shapes = [
+            {
+                d: "m0 0v70q250 80 500 0v-70z"
+            },
+            {
+                d: "m0 0v70q250 0 500 0v-70z"
+            }
+        ]
+
+        let header_scroll_animation = anime({
+          targets: '#header-image-2 path',
+          d: [
+            {value: shapes[0].d},
+            {value: shapes[1].d}
+        ],
+          direction: 'alternate',
+          loop: true,
+          easing: 'easeInOutQuad'
+        });
+
+    </script>
 
 </html>

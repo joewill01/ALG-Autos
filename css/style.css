@@ -17,10 +17,12 @@ html { font-family: 'Roboto', sans-serif; }
     height: 70px;
     z-index: 999;
 
+    display: inline;
+
     box-shadow: 0 0 30px 1px rgba(0,0,0,0.4)
 }
 
-.header-image {
+#header-svg {
     position: absolute;
     top: 0;
     width: 100%;
@@ -30,41 +32,35 @@ html { font-family: 'Roboto', sans-serif; }
 
 
 .brand {
-    display: inline;
-
+    display: inline-block;
     background-image: url("../img/circle.png");
     background-size: cover;
 
     margin-top: 10px;
+    margin-left: calc(50% - 45px);
     height: 90px;
     width: 90px;
-
-    position: absolute;
-    left: calc(50% - 45px);
-
-    transition: ease height 0.4s, ease width 0.4s, ease left 0.4s;
+    transition: ease all 0.4s;
 }
 
 .brand-scroll {
+    margin-left: 13px;
     height: 50px;
     width: 50px;
-    left: 13px;
 }
 
 .nav {
     margin-right: 20px;
     height: 85px;
-    display: flex;
+
+    display: inline-flex;
+
     flex-direction: row;
     align-items: center;
     justify-content: center;
     float: right;
-    transition: ease height 0.4s
 }
 
-.nav-scroll {
-    height: 70px;
-}
 
 .nav-link {
     font-size: 14px;

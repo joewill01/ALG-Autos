@@ -13,22 +13,38 @@ setInterval(function() {
 
 function animate_header(type) {
     if ((type === "scroll") && (last_header_animation === "top")) {
-        document.getElementById('header-scroll-animate').beginElement();
+
+        anime({
+            targets: '#header-svg path',
+            d: 'm0 0v70q250 0 500 0v-70z',
+            easing: 'easeInOutQuad',
+            duration: 250,
+        });
+
+
+
         last_header_animation = 'scroll';
+
     } else if ((type === "top") && (last_header_animation === "scroll")) {
-        document.getElementById('header-animate').beginElement();
+
+        anime({
+            targets: '#header-svg path',
+            d: 'm0 0v70q250 80 500 0v-70z',
+            easing: 'easeInOutQuad',
+            duration: 250,
+        });
+
+
         last_header_animation = 'top';
     }
 }
 
 $(window).on("scroll", function() {
     if($(window).scrollTop() > 10) {
-        $(".brand").addClass("brand-scroll");
         animate_header('scroll');
-        $(".nav").addClass("nav-scroll");
+        $(".brand").addClass("brand-scroll");
     } else if($(window).scrollTop() <= 10) {
-        $(".brand").removeClass("brand-scroll");
         animate_header('top');
-        $(".nav").removeClass("nav-scroll");
+        $(".brand").removeClass("brand-scroll");
     }
 });
