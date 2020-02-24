@@ -5,19 +5,146 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
+    <script src="./js/jquery-3.4.1.min.js"></script>
+
+    <script>
+        let current_slide = 1;
+        let slide_count = 5;
+
+        function moveSlide() {
+            if (current_slide === 1) {
+                document.getElementById('item1').classList.add("left");
+                document.getElementById('item2').classList.add("right");
+            } else if (current_slide === 2) {
+                document.getElementById('item2').classList.add("left");
+                document.getElementById('item3').classList.add("right");
+            } else if (current_slide === 3) {
+                document.getElementById('item3').classList.add("left");
+                document.getElementById('item4').classList.add("right");
+            } else if (current_slide === 4) {
+                document.getElementById('item4').classList.add("left");
+                document.getElementById('item5').classList.add("right");
+            } else if (current_slide === 5) {
+                document.getElementById('item5').classList.add("left");
+                document.getElementById('item1').classList.add("right");
+            }
+            if (current_slide === slide_count) {
+                current_slide = 1;
+            } else {
+                current_slide++
+            }
+        }
+
+        window.onload = function() {
+            document.getElementById('item1').addEventListener('transitionend', () => {
+                document.getElementById('item1').classList.remove("left");
+                document.getElementById('item1').classList.remove("right");
+                if (current_slide === 1) {
+                    document.getElementById('item1').classList.add("active");
+                } else {
+                    document.getElementById('item1').classList.remove("active");
+                }
+            })
+
+            document.getElementById('item2').addEventListener('transitionend', () => {
+                document.getElementById('item2').classList.remove("left");
+                document.getElementById('item2').classList.remove("right");
+                if (current_slide === 2) {
+                    document.getElementById('item2').classList.add("active");
+                } else {
+                    document.getElementById('item2').classList.remove("active");
+                }
+            })
+
+            document.getElementById('item3').addEventListener('transitionend', () => {
+                document.getElementById('item3').classList.remove("left");
+                document.getElementById('item3').classList.remove("right");
+                if (current_slide === 3) {
+                    document.getElementById('item3').classList.add("active");
+                } else {
+                    document.getElementById('item3').classList.remove("active");
+                }
+            })
+
+            document.getElementById('item4').addEventListener('transitionend', () => {
+                document.getElementById('item4').classList.remove("left");
+                document.getElementById('item4').classList.remove("right");
+                if (current_slide === 4) {
+                    document.getElementById('item4').classList.add("active");
+                } else {
+                    document.getElementById('item4').classList.remove("active");
+                }
+            })
+
+            document.getElementById('item5').addEventListener('transitionend', () => {
+                document.getElementById('item5').classList.remove("left");
+                document.getElementById('item5').classList.remove("right");
+                if (current_slide === 5) {
+                    document.getElementById('item5').classList.add("active");
+                } else {
+                    document.getElementById('item5').classList.remove("active");
+                }
+            })
+
+         setInterval(moveSlide, 5000);
+        }
+
+
+
+    </script>
+
     <style>
-        .header rect {
-            ry: 55
-            transition: ease ry 0.25s;
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
 
-        .header rect:hover {
-            ry: 0
+        .slideshow-carousel {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
         }
 
-        #header-image-2 {
-            margin: 50px;
+        .slideshow-carousel-item {
+            position: absolute;
+            top: 0;
+            left: 100%;
+
+            background-color: black;
+            height: 100%;
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            display: inline-block;
+
+            visibility: hidden;
         }
+
+        .slideshow-carousel-item h1 {
+            color: white;
+        }
+
+        .slideshow-carousel-item.active {
+            visibility: visible;
+            left: 0;
+        }
+
+        .slideshow-carousel-item.left {
+            visibility: visible;
+            transform: translateX(-100%);
+            transition: ease all 1s;
+        }
+
+        .slideshow-carousel-item.right {
+            visibility: visible;
+            transform: translateX(-100%);
+            transition: ease all 1s;
+        }
+
 
     </style>
 
@@ -25,59 +152,28 @@
 
 <body>
 
-<div class="test" style="background-color: red; width: 100px; height: 100px;"></div>
+<div class="slideshow-carousel">
+    <div id="item1" class="slideshow-carousel-item active">
+        <h1>Slide 1!</h1>
+    </div>
 
+    <div id="item2" class="slideshow-carousel-item" style="background-color: red;">
+        <h1>Slide 2!</h1>
+    </div>
 
+    <div id="item3" class="slideshow-carousel-item" style="background-color: blue;">
+        <h1>Slide 3!</h1>
+    </div>
 
-<svg class="header" height="110" preserveAspectRatio="none" viewBox="0 0 500 110" xmlns="http://www.w3.org/2000/svg">
+    <div id="item4" class="slideshow-carousel-item" style="background-color: green;">
+        <h1>Slide 4!</h1>
+    </div>
 
-    <rect width="500" height="55" fill="#e7dba9"></rect>
-    <ellipse cx="250" cy="25" rx="300" ry="55" fill="#000">
-        <animate attributeName="ry" repeatCount="1" from="55" to="0" fill="freeze"/>
-        <animate attributeName="cy" repeatCount="1" from="25" to="55" fill="freeze"/>
-    </ellipse>
-</svg>
+    <div id="item5" class="slideshow-carousel-item" style="background-color: aqua;">
+        <h1>Slide 5!</h1>
+    </div>
+</div>
 
-<svg class="header-image" preserveAspectRatio="none" viewBox="0 0 500 110" xmlns="http://www.w3.org/2000/svg">
-    <path fill="#e7dba9" d="m0 0v70q250 80 500 0v-70z">
-        <animate id="header-animate" begin="indefinite" dur="0.25s" attributeName="d" repeatCount="1" from="m0 0v70q250 0 500 0v-70z" to="m0 0v70q250 80 500 0v-70z" fill="freeze"></animate>
-        <animate id="header-scroll-animate" begin="indefinite" dur="0.25s" attributeName="d" repeatCount="1" from="m0 0v70q250 80 500 0v-70z" to="m0 0v70q250 0 500 0v-70z" fill="freeze"></animate>
-    </path>
-</svg>
-
-<svg id="header-image-2" preserveAspectRatio="none" viewBox="0 0 500 110" xmlns="http://www.w3.org/2000/svg">
-    <path fill="#e7dba9" d="m0 0v70q250 80 500 0v-70z"></path>
-</svg>
-
-<button onclick="animate_header()">Animate</button>
-
-</body>
-
-
-
-
-<script src="./js/anime.min.js"></script>
-    <script>
-        let shapes = [
-            {
-                d: "m0 0v70q250 80 500 0v-70z"
-            },
-            {
-                d: "m0 0v70q250 0 500 0v-70z"
-            }
-        ]
-
-        let header_scroll_animation = anime({
-          targets: '#header-image-2 path',
-          d: [
-            {value: shapes[0].d},
-            {value: shapes[1].d}
-        ],
-          direction: 'alternate',
-          loop: true,
-          easing: 'easeInOutQuad'
-        });
-
-    </script>
+<button onclick="moveSlide()">Move slide</button>
 
 </html>

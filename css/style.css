@@ -4,6 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
     background-color: black;
+    overflow-x: hidden;
 }
 
 html { font-family: 'Roboto', sans-serif; }
@@ -100,12 +101,51 @@ html { font-family: 'Roboto', sans-serif; }
     height: calc(100vh - 70px);
 }
 
-.slide {
+/* Slideshow */
+
+.slideshow-carousel {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 70px);
+}
+
+.slideshow-carousel-item {
     position: absolute;
     top: 0;
+    left: 100%;
 
+    background-color: black;
+    height: 100%;
     width: 100%;
-    height: calc(100vh - 70px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    display: inline-block;
+
+    visibility: hidden;
+}
+
+.slideshow-carousel-item h1 {
+    color: white;
+}
+
+.slideshow-carousel-item.active {
+    visibility: visible;
+    left: 0;
+}
+
+.slideshow-carousel-item.left {
+    visibility: visible;
+    transform: translateX(-100%);
+    transition: ease all 1s;
+}
+
+.slideshow-carousel-item.right {
+    visibility: visible;
+    transform: translateX(-100%);
+    transition: ease all 1s;
 }
 
 .slide-content {
@@ -142,6 +182,10 @@ html { font-family: 'Roboto', sans-serif; }
 
     box-shadow: inset 0 0 50px 25px rgba(0,0,0,0.75);
 }
+
+
+/* End slideshow */
+
 
 .header1 {
     font-family: "Open Sans", "Helvetica Neue", sans-serif;
