@@ -1,86 +1,45 @@
 let last_header_animation = 'top';
 
 /* Slideshow */
+function slideshow() {
+    let current_slide = 0;
+    let slides = document.getElementById('slideshow-carousel').children;
 
-let current_slide = 1;
-let slide_count = 5;
+    for (let i=0; i < slides.length; i++) {
+        slides[i].addEventListener('transitionend', () => {
+            slides[i].classList.remove("left");
+            slides[i].classList.remove("right");
+            if (current_slide === i) {
+                slides[i].classList.add("active");
+            } else {
+                slides[i].classList.remove("active");
+            }
+        })
+    }
 
-function moveSlide() {
-    if (current_slide === 1) {
-        document.getElementById('item1').classList.add("left");
-        document.getElementById('item2').classList.add("right");
-    } else if (current_slide === 2) {
-        document.getElementById('item2').classList.add("left");
-        document.getElementById('item3').classList.add("right");
-    } else if (current_slide === 3) {
-        document.getElementById('item3').classList.add("left");
-        document.getElementById('item4').classList.add("right");
-    } else if (current_slide === 4) {
-        document.getElementById('item4').classList.add("left");
-        document.getElementById('item5').classList.add("right");
-    } else if (current_slide === 5) {
-        document.getElementById('item5').classList.add("left");
-        document.getElementById('item1').classList.add("right");
+    function moveSlide() {
+        for (let i=0; i < slides.length; i++) {
+            if (current_slide === i) {
+                slides[i].classList.add("left");
+                if (i === (slides.length - 1)) {
+                    slides[0].classList.add("right");
+                } else {
+                    slides[i+1].classList.add("right");
+                }
+            }
+        }
+        if (current_slide == (slides.length - 1)) {
+            current_slide = 0;
+        } else {
+            current_slide++
+        }
     }
-    if (current_slide === slide_count) {
-        current_slide = 1;
-    } else {
-        current_slide++
-    }
+
+    setInterval(moveSlide, 5000);
 }
 
 window.onload = function() {
-    document.getElementById('item1').addEventListener('transitionend', () => {
-        document.getElementById('item1').classList.remove("left");
-        document.getElementById('item1').classList.remove("right");
-        if (current_slide === 1) {
-            document.getElementById('item1').classList.add("active");
-        } else {
-            document.getElementById('item1').classList.remove("active");
-        }
-    })
-
-    document.getElementById('item2').addEventListener('transitionend', () => {
-        document.getElementById('item2').classList.remove("left");
-        document.getElementById('item2').classList.remove("right");
-        if (current_slide === 2) {
-            document.getElementById('item2').classList.add("active");
-        } else {
-            document.getElementById('item2').classList.remove("active");
-        }
-    })
-
-    document.getElementById('item3').addEventListener('transitionend', () => {
-        document.getElementById('item3').classList.remove("left");
-        document.getElementById('item3').classList.remove("right");
-        if (current_slide === 3) {
-            document.getElementById('item3').classList.add("active");
-        } else {
-            document.getElementById('item3').classList.remove("active");
-        }
-    })
-
-    document.getElementById('item4').addEventListener('transitionend', () => {
-        document.getElementById('item4').classList.remove("left");
-        document.getElementById('item4').classList.remove("right");
-        if (current_slide === 4) {
-            document.getElementById('item4').classList.add("active");
-        } else {
-            document.getElementById('item4').classList.remove("active");
-        }
-    })
-
-    document.getElementById('item5').addEventListener('transitionend', () => {
-        document.getElementById('item5').classList.remove("left");
-        document.getElementById('item5').classList.remove("right");
-        if (current_slide === 5) {
-            document.getElementById('item5').classList.add("active");
-        } else {
-            document.getElementById('item5').classList.remove("active");
-        }
-    })
-
- setInterval(moveSlide, 5000);
+    slideshow();
 }
 
 /* End slideshow */
@@ -110,8 +69,10 @@ $(window).on("scroll", function() {
     if($(window).scrollTop() > 10) {
         animate_header('scroll');
         $(".brand").addClass("brand-scroll");
+        $(".nav").addClass("nav-scroll");
     } else if($(window).scrollTop() <= 10) {
         animate_header('top');
         $(".brand").removeClass("brand-scroll");
+        $(".nav").removeClass("nav-scroll");
     }
 });
