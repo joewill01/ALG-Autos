@@ -76,3 +76,7 @@ $(window).on("scroll", function() {
         $(".nav").removeClass("nav-scroll");
     }
 });
+
+function close_side_menu () {
+    document.getElementById("side_menu_checkbox").checked = false;
+}

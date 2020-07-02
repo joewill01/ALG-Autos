@@ -9,6 +9,27 @@ html, body {
 
 html { font-family: 'Roboto', sans-serif; }
 
+@media screen and (min-width: 727px) {
+    .mobile-nav {
+        display: none;
+    }
+
+    .desktop-nav {
+        display: inline-flex;
+    }
+}
+
+@media screen and (max-width: 727px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: inline-flex;
+    }
+}
+
+
 .header {
     position: fixed;
     top: 0;
@@ -56,7 +77,6 @@ html { font-family: 'Roboto', sans-serif; }
     margin-right: 20px;
     height: 85px;
 
-    display: inline-flex;
 
     flex-direction: row;
     align-items: center;
@@ -68,6 +88,7 @@ html { font-family: 'Roboto', sans-serif; }
 
 .nav-scroll {
     height: 70px;
+    margin-right: 10px;
 }
 
 .nav-link {
@@ -125,11 +146,13 @@ html { font-family: 'Roboto', sans-serif; }
     background-color: black;
     opacity: 0;
     transition: cubic-bezier(.77,.2,.05,1) all 0.35s;
+    z-index: -1;
 
 }
 
 .hamburger input:checked~span:nth-child(2) {
     opacity: 0.5;
+    z-index: 0;
 }
 
 .mobile-nav .slide-in-nav {
@@ -140,7 +163,20 @@ html { font-family: 'Roboto', sans-serif; }
     left: 100vw;
     background-color: #111;
     transition: cubic-bezier(.77,.2,.05,1) all 0.35s;
+    display: flex;
+    flex-direction: column;
+    padding-top: 75px;
+}
 
+.mobile-nav .slide-in-nav a {
+    color: #888;
+    font-size: 18px;
+    padding-left: 35px;
+    transition: ease all 0.25s;
+}
+
+.mobile-nav .slide-in-nav a:active {
+    background-color: #333;
 }
 
 .hamburger input:checked~div:nth-child(3) {
