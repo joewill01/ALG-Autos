@@ -1,7 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+:root {
+    --header-bg-color: transparent;
+    --header-item-color: white;
+    --header-item-color-hover: #b3ecff;
+    --header-item-background-color: rgba(0, 0, 0, 0.5);
+    --header-item-background-color-hover: rgba(0, 0, 0, 0.5);
+    --header-height: 100px;
+    --header-transition: ease all 0.35s, ease color 0.2s;
+    --header-right-padding: 35px;
+    --header-brand-url: url("../old_version/img/circle.png");
+    --header-brand-height: 70px;
+    --header-brand-width: 70px;
+    --header-brand-left: calc(50vw - calc(var(--header-brand-width) / 2));
+
+    --sidemenu-hamburger-color: white;
+    --sidemenu-hamburger-color-active: #555;
+    --sidemenu-background-color: #111;
+    --sidemenu-item-color: #888;
+    --sidemenu-item-background-color: transparent;
+    --sidemenu-item-background-color-active: #555;
+    --sidemenu-transition: cubic-bezier(.77,.2,.05,1) all 0.35s;
+}
+
+.scroll {
+    --header-bg-color: #eee;
+    --header-height: 70px;
+    --header-brand-left: 25px;
+    --header-brand-width: 45px;
+    --header-brand-height: 45px;
+    --header-right-padding: 22px;
+    --header-item-color: #555;
+    --header-item-color-hover: #60c4dc;
+    --header-item-background-color: transparent;
+
+    --sidemenu-hamburger-color: #555;
+}
+
 html, body {
     margin: 0;
     padding: 0;
-    min-height: 100%
+    min-height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
 }
 
 .top-section {
@@ -14,7 +58,47 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1e5799+0,2989d8+50,207cca+51,7db9e8+100;Blue+Gloss+Default */
 }
+
+.top-section .banner {
+    background-image: url("http://restoshack.com/wp-content/uploads/2020/04/mini-restoration-tiny.jpg");
+    background-size: cover;
+    position: relative;
+}
+
+.top-section .banner .text-holder {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 120px;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+.top-section .banner .text-holder h1 {
+    color: white;
+    font-size: 72px;
+    margin: 0;
+}
+
+.top-section .banner .text-holder p {
+    color: white;
+    font-size: 24px;
+}
+
+.btn {
+    padding: 10px 16px;
+    background-color: white;
+    border-radius: 200px;
+    border: none;
+    font-size: 14px;
+}
+
 
 /* Slideshow */
 
@@ -81,3 +165,167 @@ html, body {
 
 
 /* End slideshow */
+
+/* nav */
+
+
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--header-height);
+    background-color: var(--header-bg-color);
+    transition: var(--header-transition);
+    display: flex;
+    align-items: center;
+    z-index: 99;
+}
+
+.nav-bar .brand {
+    display: inline;
+    position: absolute;
+    left: var(--header-brand-left);
+    height: var(--header-brand-height);
+    width: var(--header-brand-width);
+    background-image: var(--header-brand-url);
+    background-size: cover;
+    transition: var(--header-transition);
+}
+
+.nav {
+    position: absolute;
+    right: var(--header-right-padding);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: var(--header-transition);
+}
+
+
+.desktop-nav .nav-link {
+    padding: 6px 5px 6px 5px;
+    margin: 0 3px;
+    font-size: 14px;
+    color: var(--header-item-color);
+    background-color: var(--header-item-background-color);
+    transition: var(--header-transition)
+}
+
+.desktop-nav .nav-link:hover {
+    color: var(--header-item-color-hover);
+    background-color: var(--header-item-background-color-hover);
+}
+
+
+/* mobile nav */
+
+.hamburger {
+}
+
+.hamburger .hamburger-element {
+    width: 25px;
+    height: 4px;
+    background-color: var(--sidemenu-hamburger-color);
+    display: block;
+    border-radius: 20px;
+    margin: 4px;
+
+    transition: var(--sidemenu-transition);
+
+    z-index: 100;
+}
+
+.hamburger input {
+    z-index: 1;
+    opacity: 0;
+    position: absolute;
+    width: 25px;
+    height: 20px;
+}
+
+
+.mobile-nav .fade {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background-color: black;
+    opacity: 0;
+    transition: cubic-bezier(.77,.2,.05,1) all 0.35s;
+    z-index: -1;
+}
+
+.hamburger input:checked~span:nth-child(2) {
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.mobile-nav .slide-in-nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    left: 100vw;
+    background-color: var(--sidemenu-background-color);
+    transition: var(--sidemenu-transition);
+    display: flex;
+    flex-direction: column;
+    padding-top: 75px;
+}
+
+.mobile-nav .slide-in-nav a {
+    color: var(--sidemenu-item-color);
+    background-color: var(--sidemenu-item-background-color);
+    font-size: 20px;
+    padding: 12px 0 12px 40px;
+    transition: ease all 0.25s;
+}
+
+.mobile-nav .slide-in-nav a:active {
+    background-color: var(--sidemenu-item-background-color-active);
+}
+
+.hamburger input:checked~div:nth-child(3) {
+    left: 80px;
+}
+
+.hamburger input:checked~span:nth-child(4) {
+    transform: translateY(8px) rotate(-135deg);
+    background-color: var(--sidemenu-hamburger-color-active);
+}
+
+.hamburger input:checked~span:nth-child(5) {
+    opacity: 0;
+}
+
+.hamburger input:checked~span:nth-child(6) {
+    transform: translateY(-8px) rotate(135deg);
+    background-color: var(--sidemenu-hamburger-color-active);
+}
+
+@media screen and (min-width: 727px) {
+    .mobile-nav {
+        display: none;
+    }
+
+    .desktop-nav {
+        display: inline-flex;
+    }
+}
+
+@media screen and (max-width: 727px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: inline-flex;
+    }
+}
+
+.footer {
+    height: var(--footer-height);
+    background-color: var(--footer-background-color);
+}

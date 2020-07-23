@@ -1,13 +1,3 @@
-/* Scroll detection */
-
-window.addEventListener('scroll', function(e) {
-    if (window.scrollY >= 70) {
-        document.getElementById('body').classList.add("scroll")
-    } else if (window.scrollY < 70) {
-        document.getElementById('body').classList.remove("scroll")
-    }
-});
-
 /* Slideshow */
 function slideshow() {
     let current_slide = 0;
@@ -36,7 +26,7 @@ function slideshow() {
                 }
             }
         }
-        if (current_slide === (slides.length - 1)) {
+        if (current_slide == (slides.length - 1)) {
             current_slide = 0;
         } else {
             current_slide++
@@ -45,12 +35,9 @@ function slideshow() {
 
     setInterval(moveSlide, 5000);
 }
-/* End slideshow */
 
 window.onload = function() {
     slideshow();
 };
 
-function close_side_menu () {
-    document.getElementById("side_menu_checkbox").checked = false;
-}
+/* End slideshow */
