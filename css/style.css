@@ -48,9 +48,9 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto', sans-serif;
 }
 
+
 .top-section {
     height: 100vh;
-
 }
 
 .banner {
@@ -58,7 +58,6 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1e5799+0,2989d8+50,207cca+51,7db9e8+100;Blue+Gloss+Default */
 }
 
 .top-section .banner {
@@ -69,10 +68,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .top-section .banner .text-holder {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 120px;
-    width: 100%;
+    left: 0;
+    height: 100%;
+    width: 80%;
+    padding: 10%;
     max-width: 500px;
     display: flex;
     justify-content: center;
@@ -244,7 +243,6 @@ h1, h2, h3, h4, h5, h6 {
     height: 20px;
 }
 
-
 .mobile-nav .fade {
     position: fixed;
     top: 0;
@@ -322,6 +320,17 @@ h1, h2, h3, h4, h5, h6 {
 
     .mobile-nav {
         display: inline-flex;
+    }
+    .top-section .banner .text-holder {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .top-section .banner .text-holder h1 {
+        font-size: 40px;
+    }
+    .top-section .banner .text-holder p {
+        font-size: 18px;
     }
 }
 
