@@ -48,9 +48,18 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto', sans-serif;
 }
 
+.block {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
 
 .top-section {
     height: 100vh;
+    margin-top: -100vh
 }
 
 .banner {
@@ -61,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-section .banner {
-    background-image: url("http://restoshack.com/wp-content/uploads/2020/04/mini-restoration-tiny.jpg");
+    background-image: none;
     background-size: cover;
     position: relative;
 }
