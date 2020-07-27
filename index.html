@@ -9,6 +9,8 @@
     <meta name=viewport content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="./js/parallax.min.js"></script>
+    <script src="js/aos.js"></script>
+    <link rel="stylesheet" href="css/aos.css">
 </head>
 
 <body id="body" class="">
@@ -39,103 +41,67 @@
         </div>
     </header>
 
-    <div class="parallax-window" data-parallax="scroll" data-image-src="http://restoshack.com/wp-content/uploads/2020/04/mini-restoration-tiny.jpg" style="height: 100vh;"></div>
+    <div class="parallax-window behind" data-parallax="scroll" data-image-src="./img/banner.jpg" style="height: 100vh; margin-bottom: -100vh"></div>
 
     <div class="top-section">
         <div class="banner">
             <div class="text-holder">
-                <h1>Some large text here about something</h1>
-                <p>Smaller text related to the larger text above</p>
-                <button class="btn">Learn More</button>
+                <h1 data-aos="fade-up" data-aos-duration="800">Some large text here about something</h1>
+                <p data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">Smaller text related to the larger text above</p>
+                <button data-aos="fade-up" data-aos-delay="900" data-aos-duration="800" class="btn">Learn More</button>
             </div>
         </div>
     </div>
 
+    <div class="block what-we-do">
+        <div class="left" data-aos="zoom-in">
+            <h1>What we do</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+
+        <div class="right">
+            <img src="img/clipart.png" alt="Car Restoration" data-aos="fade-left" />
+        </div>
+    </div>
+
+    <div class="block images">
+        <div class="image" style="background-image: url('img/retro-classicsfair.jpg')" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500">
+            <div class="overlay">
+                <h1>Lorem Ipsum</h1>
+                <p>Dolor Sit Amet</p>
+            </div>
+        </div>
+        <div class="image" style="background-image: url('img/03_Frankfurt_Classics.jpg')" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">
+            <div class="overlay">
+                <h1>Lorem Ipsum</h1>
+                <p>Dolor Sit Amet</p>
+            </div>
+        </div>
+        <div class="image" style="background-image: url('img/top-10-cars-of-retro-classics-2019.jpg')" data-aos="fade-up" data-aos-delay="400" data-aos-duration="500">
+            <div class="overlay">
+                <h1>Lorem Ipsum</h1>
+                <p>Dolor Sit Amet</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-window" data-parallax="scroll" data-image-src="./img/banner1.webp" style="height: 500px;"></div>
+
     <div id="about-us" class="block">
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
-        lorem<br>
+        <h1>About us</h1>
         lorem<br>
         lorem<br>
     </div>
 
-    <div class="parallax-window" data-parallax="scroll" data-image-src="https://static.toiimg.com/thumb/msid-44945488,width-748,height-499,resizemode=4,imgsize-291921/Nice-in-pictures.jpg" style="height: 500px;"></div>
-
-    <div class="block">
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-        ipsum<br>
-
-    </div>
 
     <div class="footer">
 
     </div>
+
+    <script>
+        window.onload = function() {
+            AOS.init();
+        };
+      </script>
 </body>
 </html>
