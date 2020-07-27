@@ -9,7 +9,7 @@
     --header-height: 100px;
     --header-transition: ease all 0.35s, ease color 0.2s;
     --header-right-padding: 35px;
-    --header-brand-url: url("../old_version/img/starbucks.png");
+    --header-brand-url: url("../img/starbucks.png");
     --header-brand-height: 70px;
     --header-brand-width: 70px;
     --header-brand-left: calc(50vw - calc(var(--header-brand-width) / 2));
