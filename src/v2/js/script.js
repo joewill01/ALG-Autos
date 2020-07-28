@@ -47,10 +47,12 @@ function slideshow() {
 }
 /* End slideshow */
 
-window.onload = function() {
-    slideshow();
-};
-
 function close_side_menu () {
     document.getElementById("side_menu_checkbox").checked = false;
 }
+
+window.onload = function() {
+    AOS.init();
+    slideshow();
+};
+
