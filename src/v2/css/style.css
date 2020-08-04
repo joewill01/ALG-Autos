@@ -22,6 +22,8 @@
     --sidemenu-item-background-color: transparent;
     --sidemenu-item-background-color-active: #555;
     --sidemenu-transition: cubic-bezier(.77,.2,.05,1) all 0.35s;
+
+    --footer-background-color: #111;
 }
 
 .scroll {
@@ -48,7 +50,7 @@ html, body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto', sans-serif;
+    font-family: Montserrat, sans-serif;
 }
 
 /* blocks */
@@ -210,7 +212,131 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Slideshow */
 
+.slideshow-holder {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.slideshow-indicators {
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slideshow-indicators span {
+    height: 9px;
+    width: 9px;
+    border-radius: 20px;
+    border: 1px solid white;
+    opacity: 0.7;
+    margin: 2px;
+    transition: ease all 0.5s;
+}
+
+.slideshow-indicators span.active {
+    background-color: white;
+}
+
+.slideshow-btn-left {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 70px;
+    transition: ease all 0.35s;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slideshow-btn-left:hover {
+    background-color: rgba(0,0,0,0.2);
+}
+
+.slideshow-btn-left div {
+    position: relative;
+    height: 50px;
+    width: 50px;
+}
+
+.slideshow-btn-left div span:first-child {
+    position: absolute;
+    display: block;
+    background-color: white;
+    height: 5px;
+    width: 20px;
+    transform: rotate(45deg);
+    top: 17px;
+    left: 15px;
+}
+
+.slideshow-btn-left div span:nth-child(2) {
+    position: absolute;
+    display: block;
+    background-color: white;
+    height: 5px;
+    width: 20px;
+    transform: rotate(-45deg);
+    top: 28px;
+    left: 15px;
+}
+
+.slideshow-btn-right {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 70px;
+    transition: ease all 0.35s;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slideshow-btn-right:hover {
+    background-color: rgba(0,0,0,0.2);
+}
+
+.slideshow-btn-right div {
+    position: relative;
+    height: 50px;
+    width: 50px;
+}
+
+.slideshow-btn-right div span:first-child {
+    position: absolute;
+    display: block;
+    background-color: white;
+    height: 5px;
+    width: 20px;
+    transform: rotate(-45deg);
+    top: 17px;
+    left: 15px;
+}
+
+.slideshow-btn-right div span:nth-child(2) {
+    position: absolute;
+    display: block;
+    background-color: white;
+    height: 5px;
+    width: 20px;
+    transform: rotate(45deg);
+    top: 28px;
+    left: 15px;
+}
+
+
 .slideshow-carousel {
+    top: 0;
+    left: 0;
     position: relative;
     width: 100vw;
     height: 100%;
@@ -239,13 +365,21 @@ h1, h2, h3, h4, h5, h6 {
 .slideshow-carousel-item.left {
     visibility: visible;
     transform: translateX(-100%);
-    transition: ease all 1s;
+    transition: ease transform 1s;
+}
+
+.slideshow-carousel-item.pos-left {
+    left: 100%;
 }
 
 .slideshow-carousel-item.right {
     visibility: visible;
-    transform: translateX(-100%);
-    transition: ease all 1s;
+    transform: translateX(100%);
+    transition: ease transform 1s;
+}
+
+.slideshow-carousel-item.pos-right {
+    left: -100%;
 }
 
 .slide-content {
@@ -477,6 +611,40 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer {
-    height: var(--footer-height);
     background-color: var(--footer-background-color);
+    height: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-content {
+    width: 100%;
+    max-width: 600px;
+}
+
+.footer-block {
+
+}
+
+.footer-block.about-us {
+    height: 100%;
+    width: auto;
+}
+
+.footer-block.useful-links {
+    height: 100%;
+    width: auto;
+
+}
+
+.footer-block.contact {
+    height: 100%;
+    width: auto;
+
+}
+
+.footer-block.socials {
+    height: 100%;
+    width: auto;
+
 }
